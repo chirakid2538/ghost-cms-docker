@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  ghost:
+    build: .
+    restart: always
+    ports:
+      - "2368:2368"
+    environment:
+      - url=http://localhost:2368
+      - database__client=mysql
+      - database__connection__host=host.docker.internal
+      - database__connection__user=ghost
+      - database__connection__password=ghost
+      - database__connection__database=ghost
+      # - storage__active=s3
+      # - storage__s3__accessKeyId=
+      # - storage__s3__secretAccessKey=
+      # - storage__s3__region=ap-southeast-1 # Replace with your region
+      # - storage__s3__bucket=ghost-local # Replace with your bucket name
+      # - storage__s3__assetHost=https://xxx.cloudfront.net
+      # - storage__s3__pathPrefix=images
+      # - storage__s3__forcePathStyle=true
